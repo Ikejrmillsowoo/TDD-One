@@ -9,7 +9,7 @@ class BankAccountTest {
     
     @BeforeEach
     void setUp() {
-        account = new BankAccount("12345", "John Doe");
+        account = new BankAccount("12345", "John Doe", 0.0);//Isaac added balance for the test.
     }
     
     @Test
@@ -71,7 +71,7 @@ class BankAccountTest {
             account.withdraw(-50.0);
         });
         
-        String expectedMessage = "Withdrawal amount must be positive";
+        String expectedMessage = "Withdrawals amount must be positive";
         String actualMessage = exception.getMessage();
         
         assertTrue(actualMessage.contains(expectedMessage));
