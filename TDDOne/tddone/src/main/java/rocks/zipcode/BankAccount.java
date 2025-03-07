@@ -49,7 +49,7 @@ public class BankAccount {
     
     public void withdraw(double amount) {
         // Your implementation here
-        if (amount <= this.accountBalance && amount >= 0) {
+        if (amount < this.accountBalance && amount >= 0) {
             this.accountBalance -= amount;
         }
         else if (amount <= 0){

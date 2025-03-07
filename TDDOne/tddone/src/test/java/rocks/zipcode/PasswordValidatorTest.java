@@ -51,19 +51,31 @@ public class PasswordValidatorTest {
         String password = " MasterField12@";
         assertTrue(pass.isValid(password));
     }
-
+//   - Passwords that includes upper cases;
     @Test
     void testContainsUppercase(){
-
-        String password = " andy12Camel12}";
+        String password = "andy12camel12}";
         assertFalse(pass.isValid(password));
+    }
+
+    @Test
+    void test1ContainsUppercase(){
+        String password = " Andy12Camel12}";
+        assertTrue(pass.isValid(password));
     }
     // - Passwords that are too short or too long
 
     @Test
     void test6IsValid(){
+        String password = " andy12Camel12}kiusdhjfksdhkjfasknjfdanskjdaskjdnksajndkadksjandakjdakdjndkajshdknkdqejadisjakjas";
+        assertFalse(pass.isValid(password));
+        //pass.
+    }
 
-        String password = " andy12Camel12}";
+    @Test
+    void test7IsValid(){
+        String password = "hh";
+        assertFalse(pass.isValid(password));
         //pass.
     }
     // - Passwords missing uppercase, lowercase, digits, or special chars
