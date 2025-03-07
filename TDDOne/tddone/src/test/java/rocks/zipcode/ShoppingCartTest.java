@@ -108,5 +108,29 @@ class ShoppingCartTest {
     }
     // - Invalid inputs (e.g., negative prices, zero quantity)
     @Test
-    void test
+    void testNegativeInputs() {
+        Exception exception =assertThrows(IllegalArgumentException.class, () -> {
+            ShoppingCart.Item item = new ShoppingCart.Item("Bread", -40, 10);
+            cart.addItem(item);
+        });
+            String expectedMessage = "Price cannot be negative";
+            String actualMessage = exception.getMessage();
+
+            assertTrue(actualMessage.contains(expectedMessage));
+            assertEquals(0.0, cart.getSubtotal());
+    }
+
+    @Test
+    void testZeroQuantity(){
+        Exception exception =assertThrows(IllegalArgumentException.class, () -> {
+            ShoppingCart.Item item = new ShoppingCart.Item("Bread", -40, 0);
+            cart.addItem(item);
+        });
+        String expectedMessage = "Quantity must be positive";
+        String actualMessage = exception.getMessage();
+
+        assertFalse(actualMessage.contains(expectedMessage));
+        assertEquals(0.0, cart.getSubtotal());
+    }
+
 }

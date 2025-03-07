@@ -27,7 +27,7 @@ public class PasswordValidator {
         if (!containsUppercase(password)) {
             return false;
         }
-        
+
         // Check for at least one lowercase letter
         if (!containsLowercase(password)) {
             return false;
